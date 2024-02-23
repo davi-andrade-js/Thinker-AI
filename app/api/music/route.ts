@@ -26,7 +26,6 @@ export async function POST(req: Request) {
         input: {
           alpha: 0.5,
           prompt_a: prompt,
-          prompt_b: "90's rap",
           denoising: 0.75,
           seed_image_id: "vibes",
           num_inference_steps: 50,

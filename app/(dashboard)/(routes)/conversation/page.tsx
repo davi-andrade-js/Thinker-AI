@@ -20,6 +20,7 @@ import { formSchema } from "./constants";
 import { cn } from "@/lib/utils";
 import { BotAvatar } from "@/components/bot-avatar";
 import { UserAvatar } from "@/components/user-avatar";
+import toast from "react-hot-toast";
 
 const ConversationPage = () => {
   const router = useRouter();
@@ -48,7 +49,13 @@ const ConversationPage = () => {
 
       form.reset();
     } catch (error: any) {
-      // TODO: open pro modal
+      if (error?.response?.status === 500) {
+        toast.error(
+          "Our sincere apologies, but we've reached our OpenAI and Replicate APIs rate limit. Generations were shut down."
+        );
+      } else {
+        toast.error("Something went wrong. Please try again later.");
+      }
       console.log(error);
     } finally {
       router.refresh();
