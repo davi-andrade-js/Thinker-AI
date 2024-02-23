@@ -49,9 +49,9 @@ const DashboardPage = () => {
   return (
     <div>
       <div className="mb-8 space-y-4">
-        <h2 className="text-2xl md:text font-bold text-center">Explore the power of AI</h2>
+        <h2 className="text-2xl md:text font-bold text-center">Descubra o poder da IA</h2>
         <p className="text-muted-foreground font-light text-sm md:text-lg text-center">
-          Lorem ipsum dolor sit amet
+          Trabalhe 10x mais rápido com:
         </p>
       </div>
       <div className="px-4 md:px-20 lg:px-32 space-y-4">
