@@ -16,11 +16,11 @@ import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import { Empty } from "@/components/empty";
 import { Loader } from "@/components/loader";
-import { cn } from "@/lib/utils";
 
 import { amountOptions, formSchema, resolutionOptions } from "./constants";
 import { SelectContent, SelectTrigger, SelectValue } from "@radix-ui/react-select";
 import { Card, CardFooter } from "@/components/ui/card";
+import toast from "react-hot-toast";
 
 const ImagePage = () => {
   const router = useRouter();
@@ -48,7 +48,13 @@ const ImagePage = () => {
       setImages(urls);
       form.reset();
     } catch (error: any) {
-      // TODO: open pro modal
+      if (error?.response?.status === 500) {
+        toast.error(
+          "Our sincere apologies, but we've reached our OpenAI and Replicate APIs rate limit. Generations were shut down."
+        );
+      } else {
+        toast.error("Something went wrong. Please try again later.");
+      }
       console.log(error);
     } finally {
       router.refresh();
