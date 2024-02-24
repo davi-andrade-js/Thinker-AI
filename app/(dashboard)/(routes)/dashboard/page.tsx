@@ -7,35 +7,35 @@ import { useRouter } from "next/navigation";
 
 const tools = [
   {
-    label: "Conversation",
+    label: "Conversa",
     icon: MessageSquare,
     color: "text-violet-500",
     bgColor: "bg-violet-500/10",
     href: "/conversation",
   },
   {
-    label: "Music Generation",
+    label: "Gerar música",
     icon: Music,
     color: "text-emerald-500",
     bgColor: "bg-emerald-500/10",
     href: "/music",
   },
   {
-    label: "Image Generation",
+    label: "Gerar imagem",
     icon: ImageIcon,
     color: "text-pink-700",
     bgColor: "bg-pink-700/10",
     href: "/image",
   },
   {
-    label: "Video Generation",
+    label: "Gerar vídeo",
     icon: VideoIcon,
     color: "text-orange-700",
     bgColor: "bg-orange-700/10",
     href: "/video",
   },
   {
-    label: "Code Generation",
+    label: "Gerar código",
     icon: Code,
     color: "text-green-700",
     bgColor: "bg-green-700/10",
