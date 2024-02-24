@@ -53,10 +53,10 @@ const CodePage = () => {
     } catch (error: any) {
       if (error?.response?.status === 500) {
         toast.error(
-          "Our sincere apologies, but we've reached our OpenAI and Replicate APIs rate limit. Generations were shut down."
+          "Pedimos sinceras desculpas, mas nós atingimos os limites de requisições das APIs da OpenAi e Replicate. As gerações foram desativadas."
         );
       } else {
-        toast.error("Something went wrong. Please try again later.");
+        toast.error("Algo deu errado. Tente novamente depois.");
       }
       console.log(error);
     } finally {
@@ -67,8 +67,8 @@ const CodePage = () => {
   return (
     <div>
       <Heading
-        title="Code Generation"
-        description="Generate code using descriptive text."
+        title="Gerar código"
+        description="Crie código a partir de texto."
         icon={Code}
         iconColor="text-green-700"
         bgColor="bg-green-700/10"
@@ -87,7 +87,7 @@ const CodePage = () => {
                     <Input
                       className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
                       disabled={isLoading}
-                      placeholder="Simple toggle button using react hooks."
+                      placeholder="Botão simples usando React Hooks"
                       {...field}
                     />
                   </FormControl>
@@ -95,7 +95,7 @@ const CodePage = () => {
               )}
             />
             <Button className="col-span-12 lg:col-span-2 w-full" disabled={isLoading}>
-              Generate
+              Enviar
             </Button>
           </form>
         </Form>
@@ -106,7 +106,7 @@ const CodePage = () => {
             <Loader />
           </div>
         )}
-        {messages.length === 0 && !isLoading && <Empty label="No conversation started" />}
+        {messages.length === 0 && !isLoading && <Empty label="Nenhum código gerado" />}
         <div className="flex flex-col-reverse gap-y-4">
           {messages.map((message) => (
             <div

@@ -41,10 +41,10 @@ const VideoPage = () => {
     } catch (error: any) {
       if (error?.response?.status === 500) {
         toast.error(
-          "Our sincere apologies, but we've reached our OpenAI and Replicate APIs rate limit. Generations were shut down."
+          "Pedimos sinceras desculpas, mas nós atingimos os limites de requisições das APIs da OpenAi e Replicate. As gerações foram desativadas."
         );
       } else {
-        toast.error("Something went wrong. Please try again later.");
+        toast.error("Algo deu errado. Tente novamente depois.");
       }
       console.log(error);
     } finally {
@@ -55,8 +55,8 @@ const VideoPage = () => {
   return (
     <div>
       <Heading
-        title="Video Generation"
-        description="Turn your prompt into video"
+        title="Gerar vídeo"
+        description="Transforme suas ideias em vídeos."
         icon={VideoIcon}
         iconColor="text-orange-700"
         bgColor="bg-orange-700/10"
@@ -75,7 +75,7 @@ const VideoPage = () => {
                     <Input
                       className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
                       disabled={isLoading}
-                      placeholder="Golden fish in a pond"
+                      placeholder="Peixe dourado em uma poça"
                       {...field}
                     />
                   </FormControl>
@@ -83,7 +83,7 @@ const VideoPage = () => {
               )}
             />
             <Button className="col-span-12 lg:col-span-2 w-full" disabled={isLoading}>
-              Generate
+              Enviar
             </Button>
           </form>
         </Form>
@@ -94,7 +94,7 @@ const VideoPage = () => {
             <Loader />
           </div>
         )}
-        {!video && !isLoading && <Empty label="No video generated" />}
+        {!video && !isLoading && <Empty label="Nenhum vídeo gerado" />}
         {video && (
           <video controls className="w-full aspect-video mt-0 rounded-lg border bg-black">
             <source src={video} />

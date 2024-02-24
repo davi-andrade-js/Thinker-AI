@@ -42,10 +42,10 @@ const MusicPage = () => {
     } catch (error: any) {
       if (error?.response?.status === 500) {
         toast.error(
-          "Our sincere apologies, but we've reached our OpenAI and Replicate APIs rate limit. Generations were shut down."
+          "Pedimos sinceras desculpas, mas nós atingimos os limites de requisições das APIs da OpenAi e Replicate. As gerações foram desativadas."
         );
       } else {
-        toast.error("Something went wrong. Please try again later.");
+        toast.error("Algo deu errado. Tente novamente depois.");
       }
       console.log(error);
     } finally {
@@ -56,8 +56,8 @@ const MusicPage = () => {
   return (
     <div>
       <Heading
-        title="Music Generation"
-        description="Turn your prompt into music"
+        title="Gerar música"
+        description="Transforme suas ideias em música"
         icon={Music}
         iconColor="text-emerald-500"
         bgColor="bg-emerald-500/10"
@@ -76,7 +76,7 @@ const MusicPage = () => {
                     <Input
                       className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
                       disabled={isLoading}
-                      placeholder="Piano solo"
+                      placeholder="Solo de piano"
                       {...field}
                     />
                   </FormControl>
@@ -84,7 +84,7 @@ const MusicPage = () => {
               )}
             />
             <Button className="col-span-12 lg:col-span-2 w-full" disabled={isLoading}>
-              Generate
+              Enviar
             </Button>
           </form>
         </Form>
@@ -95,7 +95,7 @@ const MusicPage = () => {
             <Loader />
           </div>
         )}
-        {!music && !isLoading && <Empty label="No music generated" />}
+        {!music && !isLoading && <Empty label="Nenhuma música gerada" />}
         {music && (
           <audio controls className="w-full mt-8">
             <source src={music} />

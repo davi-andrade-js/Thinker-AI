@@ -51,10 +51,10 @@ const ConversationPage = () => {
     } catch (error: any) {
       if (error?.response?.status === 500) {
         toast.error(
-          "Our sincere apologies, but we've reached our OpenAI and Replicate APIs rate limit. Generations were shut down."
+          "Pedimos sinceras desculpas, mas nós atingimos os limites de requisições das APIs da OpenAi e Replicate. As gerações foram desativadas."
         );
       } else {
-        toast.error("Something went wrong. Please try again later.");
+        toast.error("Algo deu errado. Tente novamente depois.");
       }
       console.log(error);
     } finally {
@@ -65,8 +65,8 @@ const ConversationPage = () => {
   return (
     <div>
       <Heading
-        title="Conversation"
-        description="Our most advanced conversation model"
+        title="Conversa"
+        description="Nosso modelo de conversa mais avançado."
         icon={MessageSquare}
         iconColor="text-violet-500"
         bgColor="bg-violet-500/10"
@@ -85,7 +85,7 @@ const ConversationPage = () => {
                     <Input
                       className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
                       disabled={isLoading}
-                      placeholder="How do I calculate the radius of a circle?"
+                      placeholder="Como posso calcular a área de um círculo?"
                       {...field}
                     />
                   </FormControl>
@@ -93,7 +93,7 @@ const ConversationPage = () => {
               )}
             />
             <Button className="col-span-12 lg:col-span-2 w-full" disabled={isLoading}>
-              Generate
+              Enviar
             </Button>
           </form>
         </Form>
@@ -104,7 +104,7 @@ const ConversationPage = () => {
             <Loader />
           </div>
         )}
-        {messages.length === 0 && !isLoading && <Empty label="No conversation started" />}
+        {messages.length === 0 && !isLoading && <Empty label="Nenhuma conversa iniciada" />}
         <div className="flex flex-col-reverse gap-y-4">
           {messages.map((message) => (
             <div

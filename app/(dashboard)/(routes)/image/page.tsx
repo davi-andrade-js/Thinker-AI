@@ -50,10 +50,10 @@ const ImagePage = () => {
     } catch (error: any) {
       if (error?.response?.status === 500) {
         toast.error(
-          "Our sincere apologies, but we've reached our OpenAI and Replicate APIs rate limit. Generations were shut down."
+          "Pedimos sinceras desculpas, mas nós atingimos os limites de requisições das APIs da OpenAi e Replicate. As gerações foram desativadas."
         );
       } else {
-        toast.error("Something went wrong. Please try again later.");
+        toast.error("Algo deu errado. Tente novamente depois.");
       }
       console.log(error);
     } finally {
@@ -64,8 +64,8 @@ const ImagePage = () => {
   return (
     <div>
       <Heading
-        title="Image Generation"
-        description="Turn your prompt into an image."
+        title="Gerar imagem"
+        description="Transforme suas ideias em imagens."
         icon={ImageIcon}
         iconColor="text-pink-700"
         bgColor="bg-pink-700/10"
@@ -84,7 +84,7 @@ const ImagePage = () => {
                     <Input
                       className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
                       disabled={isLoading}
-                      placeholder="A picture of a horse in Swiss alps"
+                      placeholder="Uma foto de um cavalo nos Alpes Suíços"
                       {...field}
                     />
                   </FormControl>
@@ -146,7 +146,7 @@ const ImagePage = () => {
               )}
             />
             <Button className="col-span-12 lg:col-span-2 w-full" disabled={isLoading}>
-              Generate
+              Enviar
             </Button>
           </form>
         </Form>
@@ -157,7 +157,7 @@ const ImagePage = () => {
             <Loader />
           </div>
         )}
-        {images.length === 0 && !isLoading && <Empty label="No images generated" />}
+        {images.length === 0 && !isLoading && <Empty label="Nenhuma imagem gerada" />}
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-8">
           {images.map((src) => (
             <Card key={src} className="rounded-lg overflow-hidden">
