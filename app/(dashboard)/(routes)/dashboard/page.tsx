@@ -14,13 +14,6 @@ const tools = [
     href: "/conversation",
   },
   {
-    label: "Gerar música",
-    icon: Music,
-    color: "text-emerald-500",
-    bgColor: "bg-emerald-500/10",
-    href: "/music",
-  },
-  {
     label: "Gerar imagem",
     icon: ImageIcon,
     color: "text-pink-700",
@@ -33,6 +26,13 @@ const tools = [
     color: "text-orange-700",
     bgColor: "bg-orange-700/10",
     href: "/video",
+  },
+  {
+    label: "Gerar música",
+    icon: Music,
+    color: "text-emerald-500",
+    bgColor: "bg-emerald-500/10",
+    href: "/music",
   },
   {
     label: "Gerar código",
