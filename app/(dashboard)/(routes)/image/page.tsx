@@ -1,26 +1,31 @@
 "use client";
 
-import axios from "axios";
 import * as z from "zod";
+import axios from "axios";
 import Image from "next/image";
+import { useState } from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { Download, ImageIcon } from "lucide-react";
 import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useState } from "react";
-
-import { Select, SelectItem } from "@/components/ui/select";
-import { Heading } from "@/components/heading";
-import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+import { toast } from "react-hot-toast";
 import { useRouter } from "next/navigation";
-import { Empty } from "@/components/empty";
+
+import { Heading } from "@/components/heading";
+import { Button } from "@/components/ui/button";
+import { Card, CardFooter } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Loader } from "@/components/loader";
+import { Empty } from "@/components/ui/empty";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 import { amountOptions, formSchema, resolutionOptions } from "./constants";
-import { SelectContent, SelectTrigger, SelectValue } from "@radix-ui/react-select";
-import { Card, CardFooter } from "@/components/ui/card";
-import toast from "react-hot-toast";
 
 const ImagePage = () => {
   const router = useRouter();
@@ -46,7 +51,6 @@ const ImagePage = () => {
       const urls = response.data.map((image: { url: string }) => image.url);
 
       setImages(urls);
-      form.reset();
     } catch (error: any) {
       if (error?.response?.status === 500) {
         toast.error(
@@ -55,7 +59,6 @@ const ImagePage = () => {
       } else {
         toast.error("Algo deu errado. Tente novamente depois.");
       }
-      console.log(error);
     } finally {
       router.refresh();
     }
