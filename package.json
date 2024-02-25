@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "postinstall": "prisma generate",
-    "clean-env": "git filter-branch --index-filter 'git rm --cached --ignore-unmatch .env' HEAD"
+    "clean-env": "git filter-repo --filter 'git rm --cached --ignore-unmatch .env' HEAD"
   },
   "dependencies": {
     "@clerk/nextjs": "^4.29.7",
